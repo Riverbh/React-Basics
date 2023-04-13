@@ -1,36 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useState } from 'react';
-
-import Bravo from './Components/bravo';
-import Charlie from './Components/Charlie';
-import Delta from './Components/delta';
+import Form from './Components/Form';
+import List from './Components/List';
 
 
 
 function App() {
-  const [userInput, setUserInput] = useState('')
-  const [name, setName] = useState('')
-
-  let person = 'River'
+  
+  const [taskList, setTaskList] = useState([])
 
   const handleChange = (event) => {
-    setName(event.target.value)
+    
   }
-  const handleClick = () => {
-    setName(userInput)
-    setUserInput('')
-  }
+  const addTask = (newTask) => setTaskList([...taskList, newTask])
+   console.log('List', taskList)
+   
+
   return (
     <div className="App">
-      <h1>App: {name}</h1>
-      <Delta changeName={handleChange}/>
-      <Bravo personName={name}/> 
-      <Bravo personName="Averie"/>
-      <Charlie />
-      <Charlie num={25}/>
-      <Charlie num={75}/>
-      <Charlie num="75" /> 
+      <h1>App:</h1>
+    <Form addTask={addTask}/>
+    <List />
     </div>
   );
 }
