@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Bravo from './Components/bravo';
 import Charlie from './Components/Charlie';
+import Delta from './Components/delta';
 
 
 
@@ -14,7 +15,7 @@ function App() {
   let person = 'River'
 
   const handleChange = (event) => {
-    setUserInput(event.target.value)
+    setName(event.target.value)
   }
   const handleClick = () => {
     setName(userInput)
@@ -23,9 +24,8 @@ function App() {
   return (
     <div className="App">
       <h1>App: {name}</h1>
-      <input placeholder="What's Your Name?" value={userInput} onChange={handleChange}/>
-      <button onClick={handleClick}>ChangeName</button>
-      <Bravo personName={person}/> 
+      <Delta changeName={handleChange}/>
+      <Bravo personName={name}/> 
       <Bravo personName="Averie"/>
       <Charlie />
       <Charlie num={25}/>
