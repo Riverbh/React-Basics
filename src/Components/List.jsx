@@ -1,10 +1,18 @@
 import React from "react";
+import Task from "./task";
 
-const List =()=>{
+const List =(props)=>{
+
+    let taskDisplay = props.taskList.map((task, index) => {
+        return (
+            <Task task={task} />
+        )
+    })
 
     return (
         <div className="col-container">
             <h2>My Tasks</h2>
+            {taskDisplay}
         </div>
     )
 }
